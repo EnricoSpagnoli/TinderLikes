@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinder Likes</title>
+    <link rel="icon" href="assets/images/icon.png" type="image/png">
+
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <script src="assets/js/index.js" defer></script>
+</head>
+<body onload="onLoad();">
+    <div id="session-id-input">
+        <label for="session-id" style="position: relative; text-align: center;">Your Tinder X-Auth-Token:</label>
+        <div class="help-tip">
+            <p>
+                <a href="/howto" target="_blank">Don't know how to get your X-Auth-Token?</a>
+            </p>
+        </div>
+        <br />
+        <input name="session-id" id="session-id" type="text" placeholder="X-Auth-Token">
+        <button id="submit" onclick="submit();">Enter</button>
+        <br />
+        <div style="margin-left: 50px;">
+            <label for="rememberMe" style="font-size: 14pt;">Remember me:</label>
+            <input type="checkbox" name="rememberMe" id="remember-me">
+        </div>
+    </div>
+</body>
+<script>
+    function onLoad() {
+        var cookie = false;
+        var nameEQ = "X-Auth-Token=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) cookie = c.substring(nameEQ.length,c.length);
+        }
+
+        if (cookie) {
+            document.querySelector("#session-id").value = cookie;
+            document.querySelector("#session-id").nextElementSibling.click();
+        }
+    }
+</script>
+</html>
