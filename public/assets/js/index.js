@@ -3,7 +3,8 @@ const ENDPOINT = "https://api.gotinder.com/v2/fast-match/teasers";
 var blurEl = document.createElement("div");
 blurEl.id = "blur";
 
-(function() {
+// Only for local server
+/*(function() {
     var cors_api_host = "cors-anywhere.herokuapp.com";
     var cors_api_url = "https://" + cors_api_host + "/";
     var slice = [].slice;
@@ -18,7 +19,7 @@ blurEl.id = "blur";
         }
         return open.apply(this, args);
     };
-})();
+})();*/
 
 function submit() {
     var sessionId = document.querySelector("#session-id").value;
@@ -43,13 +44,14 @@ function getLikes() {
             
             displayProfiles(data);
         } catch(err) {
+            console.log(err);
             alert("Couldn't use Auth-Token \"" + sessionId + "\". Please try again with a new one");
             window.location.href = "/";
         }
     }
 
     xmlhttp.open("GET", ENDPOINT);
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    //xmlhttp.setRequestHeader("Content-Type", "application/json");
     xmlhttp.setRequestHeader("platform", "ios");
     xmlhttp.setRequestHeader("X-Auth-Token", sessionId);
     xmlhttp.send();

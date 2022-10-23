@@ -120,9 +120,10 @@ body::-webkit-scrollbar-thumb:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 100;
+    z-index: 101;
     animation: SlowBlur 0.2s ease;
     animation-fill-mode: forwards;
+    overflow: hidden;
 }
 
 #blur img {

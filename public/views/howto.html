@@ -7,9 +7,11 @@
     <title>Tinder Likes | How to</title>
     <link rel="icon" href="assets/images/icon.png" type="image/png">
 
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <link rel="stylesheet" href="assets/css/howto.css" type="text/css">
+    <script src="assets/js/index.js" defer></script>
 </head>
-<body>
+<body onload="onLoad();">
     <h1 style="margin-top: 25px;">How to get your X-Auth-Token:</h1>
     <h4>The X-Auth-Token does not provide access to your account and we cannot read messages, swipe, change settings or unmatch for you. We only use the token to access your available previews</h4>
     <div id="steps">
@@ -21,6 +23,9 @@
         </div>
         <div>
             <h3>3. Press Ctrl + Shift + P and type "Network" in the search bar that pops up, then press Enter</h3>
+        </div>
+        <div>
+            <img src="assets/images/demo1.png" alt="Network tab" width="750" onclick="zoom(this.src);">
         </div>
         <div>
             <h3>4. Once on the "Network" tab, press Ctrl + R to refresh the page</h3>
@@ -37,6 +42,9 @@
         <div>
             <h3>8. Once in the headers, scroll all the way down and to see "x-auth-token". Copy the value next to it and paste it back here</h3>
         </div>
+        <div>
+            <img src="assets/images/demo2.png" alt="The auth token" width="750" onclick="zoom(this.src);">
+        </div>
         <div style="margin-top: 25px;">
             <h2>Done!</h2>
         </div>
@@ -45,4 +53,18 @@
         </div>
     </div>
 </body>
+<script>
+    function onLoad() {
+        appendRule = (sheet) => {
+            var len = sheet.cssRules.length;
+            sheet.insertRule("body{}", len);
+            return sheet.cssRules[len];
+        }
+
+        ruleForScroll = appendRule(Array.from(document.styleSheets).slice(-1)[0]);
+
+        document.body.addEventListener("scroll", showScrollbar);
+        document.body.addEventListener("mousemove", showScrollbar);
+    }
+</script>
 </html>

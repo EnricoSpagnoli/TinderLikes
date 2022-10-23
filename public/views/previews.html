@@ -28,8 +28,6 @@
 
         ruleForScroll = appendRule(Array.from(document.styleSheets).slice(-1)[0]);
 
-        randomColor = () => Math.floor(255 * Math.random());
-
         document.body.addEventListener("scroll", showScrollbar);
         document.body.addEventListener("mousemove", showScrollbar);
 

@@ -1,11 +1,3 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
 h1, h2 {
     font-weight: 200;
     text-align: center;
@@ -27,7 +19,7 @@ h4 {
 
 #steps {
     position: absolute;
-    margin: 100px 0;
+    margin: 25% 0;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -35,4 +27,9 @@ h4 {
     left: 50%;
     top: 25%;
     transform: translate(-50%, -50%);
+}
+
+#steps img {
+    margin-left: 50px;
+    cursor: pointer;
 }
